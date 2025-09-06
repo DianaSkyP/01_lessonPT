@@ -1,5 +1,0 @@
-def print_greeting():
-    greeting = "Привет, мир!"
-    print(greeting)
-
-print_greeting()
