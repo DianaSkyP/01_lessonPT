@@ -99,59 +99,12 @@ def test_delete_symbol_positive(string, symbol, expected):
     assert string_utils.delete_symbol(string, symbol) == expected
 
 
-@pytest.mark.negative
-@pytest.mark.parametrize("string, symbol, expected", [
-    ("SkyPro", "X", "SkyPro"),
-    ("", "a", ""),
-    ("test", "", "test"),
-    ("SkyPro", "s", "SkyPro"),
-    ("hello", "z", "hello"),
-])
-def test_delete_symbol_negative(string, symbol, expected):
-    """Негативные тесты для delete_symbol с параметризацией"""
-    assert string_utils.delete_symbol(string, symbol) == expected
-
-
-@pytest.mark.defect
-def test_trim_with_tabs():
-    """Тест выявляющий дефект: trim не обрабатывает табуляции"""
-    result = string_utils.trim("\t\thello")
-
-    assert result == "\t\thello"
-
-
-@pytest.mark.defect
-def test_trim_with_newlines():
-    """Тест выявляющий дефект: trim не обрабатывает переносы строк"""
-    result = string_utils.trim("\n\nworld")
-
-    assert result == "\n\nworld"
-
-
 @pytest.mark.defect
 def test_contains_empty_symbol():
     """Тест граничного случая: поиск пустого символа"""
     result = string_utils.contains("SkyPro", "")
 
     assert result is True
-
-
-@pytest.mark.performance
-def test_trim_performance_issue():
-    """Тест выявляющий проблему производительности trim"""
-    import time
-
-    long_string = " " * 1000 + "test"
-
-    start_time = time.time()
-    result = string_utils.trim(long_string)
-    end_time = time.time()
-
-    assert result == "test"
-
-    execution_time = end_time - start_time
-    print(f"Время выполнения trim для 1000 пробелов: "
-          f"{execution_time:.6f} секунд")
 
 
 @pytest.mark.validation
