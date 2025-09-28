@@ -7,7 +7,7 @@ class StringUtils:
         """
         Принимает на вход текст, делает первую букву заглавной
         и возвращает этот же текст
-        Пример: `capitilize("skypro") -> "Skypro"`
+        Пример: `capitalize("skypro") -> "Skypro"`
         """
         return string.capitalize()
 
