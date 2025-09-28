@@ -42,4 +42,3 @@ def test_wait_for_images():
 
 if __name__ == "__main__":
     test_wait_for_images()
-n6
