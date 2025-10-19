@@ -6,7 +6,7 @@ from typing import Dict, Any, Optional, List
 class YougileAPI:
 
     def __init__(self):
-        self.base_url = "https://yougile.com"
+        self.base_url = "https://ru.yougile.com"
         self.token = os.getenv("YOUGILE_TOKEN")
         if not self.token:
             raise ValueError(
@@ -41,9 +41,6 @@ class YougileAPI:
     def _validate_project_data(self, project_data: Dict[str, Any]) -> None:
         if not isinstance(project_data, dict):
             raise ValueError("Project data must be a dictionary")
-
-        if "title" in project_data and not project_data["title"]:
-            raise ValueError("Project title cannot be empty")
 
     def _validate_project_id(self, project_id: str) -> None:
         if not project_id or not isinstance(project_id, str):

@@ -12,9 +12,7 @@ def api_client():
 def test_project_data():
     unique_name = f"Test Project {uuid.uuid4().hex[:8]}"
     return {
-        "title": unique_name,
-        "description": "Test project created by automated tests",
-        "users": []
+        "title": unique_name
     }
 
 
